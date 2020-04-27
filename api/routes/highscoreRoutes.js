@@ -1,4 +1,6 @@
 'use strict';
+
+// This is a Highscore Controller
 var Highscore = require('../controllers/highscoreController');
 
 module.exports = function (app) {

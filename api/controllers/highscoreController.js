@@ -1,6 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose') // NOT USED
+// Detta är en Highscore Model
 const Highscore = require('../models/highscoreModel')
 // const Highscore = mongoose.model('Highscore');
 
@@ -54,9 +55,8 @@ exports.delete_a_highScore = function (req, res) {
     }, function (err, score) {
         if (err)
             res.send(err);
-            res.json({
-                message: 'Highscore successfully deleted'
-            });
-        }
-    );
+        res.json({
+            message: 'Highscore successfully deleted'
+        });
+    });
 };
