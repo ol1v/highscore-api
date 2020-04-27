@@ -38,14 +38,14 @@ exports.read_a_highscore = function (req, res) {
 
 exports.update_a_highscore = function (req, res) {
     Highscore.findOneAndUpdate({
-        _id: req.params.taskId
+        _id: req.params.highscoreId
     }, req.body, {
-        new: true
-    }, function (err, score) {
-        if (err)
-            res.send(err);
-        res.json(score);
-    });
+            new: true
+        }, function (err, score) {
+            if (err)
+                res.send(err);
+            res.json(score);
+        });
 };
 
 
