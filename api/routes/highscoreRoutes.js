@@ -1,6 +1,7 @@
 'use strict';
+var Highscore = require('../controllers/highscoreController');
+
 module.exports = function (app) {
-    var Highscore = require('../controllers/highscoreController');
 
     // highscore Routes
     app.route('/highscore')
@@ -11,5 +12,5 @@ module.exports = function (app) {
     app.route('/highscore/:highscoreId')
         .get(Highscore.read_a_highscore)
         .put(Highscore.update_a_highscore)
-        .delete(Highscore.delete_a_highscore);
+        .delete(Highscore.delete_a_highScore);
 };

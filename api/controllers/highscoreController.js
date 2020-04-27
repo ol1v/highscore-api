@@ -1,8 +1,9 @@
 'use strict';
 
+var mongoose = require('mongoose') // NOT USED
+const Highscore = require('../models/highscoreModel')
+// const Highscore = mongoose.model('Highscore');
 
-var mongoose = require('mongoose'),
-    Highscore = mongoose.model('Highscore');
 
 exports.list_all_highscores = function (req, res) {
     Highscore.find({}, function (err, score) {
@@ -35,7 +36,11 @@ exports.read_a_highscore = function (req, res) {
 
 
 exports.update_a_highscore = function (req, res) {
-    Highscore.findOneAndUpdate({ _id: req.params.taskId }, req.body, { new: true }, function (err, score) {
+    Highscore.findOneAndUpdate({
+        _id: req.params.taskId
+    }, req.body, {
+        new: true
+    }, function (err, score) {
         if (err)
             res.send(err);
         res.json(score);
@@ -43,14 +48,15 @@ exports.update_a_highscore = function (req, res) {
 };
 
 
-exports.delete_a_score = function (req, res) {
-
-
+exports.delete_a_highScore = function (req, res) {
     Highscore.remove({
         _id: req.params.highscoreId
     }, function (err, score) {
         if (err)
             res.send(err);
-        res.json({ message: 'Highscore successfully deleted' });
-    });
+            res.json({
+                message: 'Highscore successfully deleted'
+            });
+        }
+    );
 };
