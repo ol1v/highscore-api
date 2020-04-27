@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-var routes = require('./api/routes/highscoreRoutes').default; //importing route
+var routes = require('./api/routes/highscoreRoutes'); //importing route
 routes(app); //register the route
 
 
